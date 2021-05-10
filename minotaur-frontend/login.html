@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <script src="js/init.js"></script>
+  </head>
+
+  <body>
+    <section class="hero is-fullheight">
+      <div class="hero-body has-text-centered">
+        <div class="login mx-auto">
+          <img src="/imgs/login.jpg" width="300px"/>
+          <form>
+            <div class="field">
+              <div class="control">
+                <input class="input is-medium is-rounded" type="email" placeholder="minotaur@legit.com" autocomplete="username" required id="input-username"/>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input class="input is-medium is-rounded" type="password" placeholder="**********" autocomplete="current-password" required id="input-password"/>
+              </div>
+            </div>
+            <br />
+            <button class="button is-block is-fullwidth is-medium is-rounded" type="submit" id="btn-login">
+              Login
+            </button>
+          </form>
+          <br>
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <!-- response - oh would have thouhgt it would be this easy :) -->
+                <a id="forgot-password">Forgot Password?</a>
+              </div>
+            </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </body>
+
+</html>
