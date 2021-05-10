@@ -1,0 +1,2 @@
+# minotaur-box
+ ctf
