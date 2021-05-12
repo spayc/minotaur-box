@@ -35,29 +35,32 @@ CREATE TABLE IF NOT EXISTS `labyrinth`.`creatures` (
  PRIMARY KEY (`idFood`));
 
 
--- INSERT INTO people (idPeople, namePeople, passwordPeople)
--- VALUES 
--- (0, `name`, `password`);
-
--- INSERT INTO people (idPeople, , column3)
--- VALUES (1, 'NAME', 'PassWord`); 
-
 
 INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople) VALUES
-(1, 'Eurycliedes', 'testpassword1'),
+(1, 'Eurycliedes', MD5('lovely')),
 (2, 'Menekrates', 'testpassword2'),
 (3, 'Philostratos', 'testpassword3');
 
 INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VALUES
-(1, 'Cerberos', 'testpassword4'),
+(1, 'Cerberos', MD5('lovely')),
 (2, 'Pegasus', 'testpassword5'),
 (3, 'Chiron', 'testpassword6');
 
+-- INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople) VALUES
+-- (1, 'Eurycliedes', 'testpassword1'),
+-- (2, 'Menekrates', 'testpassword2'),
+-- (3, 'Philostratos', 'testpassword3');
 
-INSERT INTO `labyrinth`.`lunch` (idFood, `name`) VALUES
-(1, `Baklava`),
-(2, `Olives`),
-(3, `Cheese`);
+-- INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VALUES
+-- (1, 'Cerberos', 'testpassword4'),
+-- (2, 'Pegasus', 'testpassword5'),
+-- (3, 'Chiron', 'testpassword6');
+
+
+INSERT INTO `labyrinth`.`lunch` (idFood, nameFood) VALUES
+(1, 'Baklava'),
+(2, 'Olives'),
+(3, 'Cheese');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
