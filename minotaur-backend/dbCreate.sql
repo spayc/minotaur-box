@@ -63,7 +63,7 @@ INSERT INTO labyrinth.login (idLogin, nameLogin, passwordLogin) VALUES
 (3, 'test', 'test');
 
 
-INSERT INTO `labyrinth`.`lunch` (idFood, nameFood) VALUES
+INSERT INTO labyrinth.lunch (idFood, nameFood) VALUES
 (1, 'Baklava'),
 (2, 'Olives'),
 (3, 'Cheese');
