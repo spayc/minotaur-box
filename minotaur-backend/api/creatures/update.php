@@ -1,20 +1,23 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 
+if (isset($_POST['nameCreature']) && isset($_POST['passwordCreature']) && isset($_POST['idCreature'])) {
 
-if (isset($_POST['nameCreature'])) {
 	require '../../dbConnect.php';
 
+    $id = $_POST['idCreature'];
 	$name = $_POST["nameCreature"];
+	$password = $_POST["passwordCreature"];
 
+    $update = "UPDATE creatures SET nameCreature=:nameCreature, passwordCreature=:passwordCreature  WHERE idCreature=:idCreature";
 
-	$remove = "DELETE FROM creatures WHERE nameCreature=:nameCreature";
 
 	try {
-		$result = $conn->prepare($remove);
+		$result = $conn->prepare($update);
 
-
+        $result->bindParam(':idCreature', $id);
 		$result->bindParam(':nameCreature', $name);
+		$result->bindParam(':passwordCreature', $password);
 
 		
 		$result->execute();
@@ -42,3 +45,4 @@ if (isset($_POST['nameCreature'])) {
 		array("message" => "No action")
 	);
 }
+?>
