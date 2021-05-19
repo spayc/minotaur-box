@@ -43,8 +43,8 @@ INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople) VALUES
 
 INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VALUES
 (1, 'Cerberos', MD5('lovely')),
-(2, 'Pegasus', 'testpassword5'),
-(3, 'Chiron', 'testpassword6');
+(2, 'Pegasus', MD5('testpassword5')),
+(3, 'Chiron', MD5('testpassword6'));
 
 -- INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople) VALUES
 -- (1, 'Eurycliedes', 'testpassword1'),
