@@ -19,3 +19,4 @@ if (isset($_GET)) {
 } 
 
 $conn = null;
+?>
