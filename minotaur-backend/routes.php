@@ -3,7 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Methods: GET, POST, DELETE');
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php'
 require 'dbConnect.php';
 
 $app = new Slim\App;
@@ -12,42 +12,71 @@ $app->get('/api/creatures/read/', function ($request, $response) {
     $db = new DbConnection();
     $conn = $db->getDb();
 
-    if ($conn == null) {
-        return $response->withJson(
-            array("message" => "error: Problem Open Database")
-        );
-    }
+    // if ($conn == null) {
+    //     return $response->withJson(
+    //         array("message" => "error: Problem Open Database")
+    //     );
+    // }
 
-    $query = "SELECT creatures.idCreature, creatures.nameCreature, passwordCreature FROM creatures";
-    $stmt = $conn->prepare($query);
+//     $query = "SELECT creatures.idCreature, creatures.nameCreature, passwordCreature FROM creatures";
+//     $stmt = $conn->prepare($query);
     
-    try {
-      $stmt->execute();
-      $rows = $stmt->fetchAll(PDO::FETCH_CLASS);
-      // if ($rows) {
-      return $response->withJson($rows, 200);
-      // }
-  } catch (PDOException $e) {
-      return $response->withJson(
-          array("message" => $e->getMessage())
-      );
-  } 
+//     try {
+//       $stmt->execute();
+//       $rows = $stmt->fetchAll(PDO::FETCH_CLASS);
+//       // if ($rows) {
+//       return $response->withJson($rows, 200);
+//       // }
+//   } catch (PDOException $e) {
+//       return $response->withJson(
+//           array("message" => $e->getMessage())
+//       );
+//   } 
 
-  // if (isset($_GET)) {
-  //   $select = "SELECT creatures.idCreature, creatures.nameCreature, passwordCreature FROM creatures";
+    $select = "SELECT creatures.idCreature, creatures.nameCreature, passwordCreature FROM creatures";
   
-  //   $result = $conn->query($select);
+    $result = $conn->query($select);
     
-  //   $all_rows = [];
-  //   while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-  //     $all_rows[] = $row;
-  //   }
-  //   echo json_encode($all_rows);
-  //   http_response_code(200);
-  // } 
+    $all_rows = [];
+    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      $all_rows[] = $row;
+    }
+    echo json_encode($all_rows);
+    http_response_code(200);
 
     $conn->dbClose();
 });
+
+
+
+$app->post('/api/creatures/add', function ($request, $response) {
+    $db = new DbConnection();
+    $conn = $db->getDb();
+
+    if ($conn == null) {
+        return $response->withJson(array("message" => "error: Problem Open Database"));
+    }
+
+    $name = $request->getParam('nameCreature');
+    $password = $request->getParam('passwordCreature');
+
+    // TODO - Prepared Statement
+    $insert = "INSERT INTO creatures VALUES($name . "', '" . $password)";
+    // $insert = "INSERT INTO creatures (nameCreature, passwordCreature)
+	// 						VALUES (:nameCreature, MD5(:passwordCreature))";
+
+    try {
+        $result = $conn->query($insert);
+
+        if ($result) {
+            $result->closeCursor();
+            return $response->withJson(array("message" => "Created"), 201);
+        }
+    } catch (PDOException $e) {
+        return json_encode(array("message" => $e->getMessage()));
+    }
+});
+
 
 // $app->get('/api/playlist/search/{s}', function ($request, $response, array $args) {
 //     $db = new DbConnection();
