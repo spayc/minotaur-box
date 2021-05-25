@@ -29,10 +29,10 @@ CREATE TABLE IF NOT EXISTS `labyrinth`.`creatures` (
  PRIMARY KEY (`idCreature`));
 
 
- CREATE TABLE IF NOT EXISTS `labyrinth`.`lunch` (
- `idFood` INT NOT NULL AUTO_INCREMENT,
- `nameFood` VARCHAR(255) NOT NULL,
- PRIMARY KEY (`idFood`));
+--  CREATE TABLE IF NOT EXISTS `labyrinth`.`lunch` (
+--  `idFood` INT NOT NULL AUTO_INCREMENT,
+--  `nameFood` VARCHAR(255) NOT NULL,
+--  PRIMARY KEY (`idFood`));
 
 
 
@@ -57,10 +57,10 @@ INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VAL
 -- (3, 'Chiron', 'testpassword6');
 
 
-INSERT INTO `labyrinth`.`lunch` (idFood, nameFood) VALUES
-(1, 'Baklava'),
-(2, 'Olives'),
-(3, 'Cheese');
+-- INSERT INTO `labyrinth`.`lunch` (idFood, nameFood) VALUES
+-- (1, 'Baklava'),
+-- (2, 'Olives'),
+-- (3, 'Cheese');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
