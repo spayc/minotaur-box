@@ -45,3 +45,4 @@ if (isset($_POST['namePeople'])) {
 		array("message" => "No action")
 	);
 }
+?>
