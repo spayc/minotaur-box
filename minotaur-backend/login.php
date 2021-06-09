@@ -2,32 +2,28 @@
     require("dbConnect.php");
     session_start();
     $error = false;
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $user = $_POST['email'];
+    $pass = $_POST['password'];
+    //$pass = md5($_POST['password']);
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        // username and password sent from form 
-        
-        $myusername = mysqli_real_escape_string($conn,$_POST['mail']);
-        $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
-        
-        $sql = "SELECT idLogin FROM labyrinth.login WHERE username = '$myusername' and passcode = '$mypassword'";
-        $result = mysqli_query($conn,$sql);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        $active = $row['active'];
-        
-        $count = mysqli_num_rows($result);
-        
-        // If result matched $myusername and $mypassword, table row must be 1 row
-          
-        if($count == 1) {
-           session_register("myusername");
-           $_SESSION['login_user'] = $myusername;
-           
-           header("Location: index.php");
-        }else {
-           $error = "Your Login Name or Password is invalid";
-        }
+      if(empty($user) || empty($pass)) {
+         $messeg = "Username/Password con't be empty";
+     } else {
+         $sql = "SELECT namePeople, passwordPeople FROM labyrinth.people WHERE namePeople=? AND 
+       passwordPeople=? ";
+         $query = $conn->prepare($sql);
+         $query->execute(array($user,$pass));
+     
+         if($query->rowCount() >= 1) {
+             $_SESSION['user'] = $user;
+             $_SESSION['time_start_login'] = time();
+             header("location: ../minotaur-backend/index.php");
+         } else {
+             $messeg = "Username/Password is wrong";
+         }
      }
+     }
+     
     
 
 ?>
