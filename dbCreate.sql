@@ -23,25 +23,24 @@ CREATE TABLE IF NOT EXISTS `labyrinth`.`creatures` (
  `passwordCreature` VARCHAR(255) NOT NULL,
  PRIMARY KEY (`idCreature`));
 
+
+-- -----------------------------------------------------
+-- Table `labyrinth`.`creatures`
+-- -----------------------------------------------------
+
 INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople) VALUES
-(1, 'Eurycliedes', MD5('lovely')),
-(2, 'Menekrates', 'testpassword2'),
-(3, 'Philostratos', 'testpassword3');
+(1, 'Eurycliedes', MD5('greeklover')),
+(2, 'Menekrates', MD5('greeksalad')),
+(3, 'Philostratos', MD5('nickthegreek')),
+(4, 'Daedalus', MD5('1989dontforgetyourpass'));
 
 INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VALUES
-(1, 'Cerberos', MD5('lovely')),
-(2, 'Pegasus', MD5('testpassword5')),
-(3, 'Chiron', MD5('testpassword6'));
+(1, 'Cerberos', MD5('soviet911210036173')),
+(2, 'Pegasus', MD5('pizzaeater_1')),
+(3, 'Chiron', MD5('hiphophugosoviet18')),
+(4, 'Centaurus', MD5('elcentauro')),
+(5, 'Minotaur', MD5('aminotauro'));
 
--- INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople) VALUES
--- (1, 'Eurycliedes', 'testpassword1'),
--- (2, 'Menekrates', 'testpassword2'),
--- (3, 'Philostratos', 'testpassword3');
-
--- INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VALUES
--- (1, 'Cerberos', 'testpassword4'),
--- (2, 'Pegasus', 'testpassword5'),
--- (3, 'Chiron', 'testpassword6');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

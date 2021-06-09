@@ -2,6 +2,7 @@ RewriteEngine On # Turn on the rewriting engine
 RewriteRule ^read/?$ read.php [NC,L]
 RewriteRule ^read/([0-9]+)/?$ read.php?id=$1 [NC,L]
 RewriteRule ^create/?$ create.php [NC,L]
+RewriteRule ^delete/?$ delete.php [NC,L]
 RewriteRule ^delete/([0-9]+)/?$ delete.php?id=$1 [NC,L]
 RewriteRule ^search/?$ search.php [NC,L]
 RewriteRule ^search/([0-9]+)/?$ search.php?id=$1 [NC,L]

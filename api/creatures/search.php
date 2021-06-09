@@ -8,7 +8,7 @@ if (isset($_POST['nameCreature'])) {
 	$name = $_POST["nameCreature"];
 
 
-	$select = "SELECT nameCreature, passwordCreature FROM creatures WHERE nameCreature=:nameCreature";
+	$select = "SELECT idCreature, nameCreature, passwordCreature FROM creatures WHERE nameCreature=:nameCreature";
 
 	try {
 		$result = $conn->prepare($select);
@@ -30,8 +30,7 @@ if (isset($_POST['nameCreature'])) {
 			array("message" => "Something went wrong:" . $e->getMessage())
 		);
 	}
-
-
+	
 	if ($result) {
 		http_response_code(200);
 		
@@ -39,7 +38,7 @@ if (isset($_POST['nameCreature'])) {
 	}
 
 } else {
-	http_response_code(403);
+	http_response_code(400);
 
 	echo json_encode(
 		array("message" => "No action")
