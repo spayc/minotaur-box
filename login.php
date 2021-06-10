@@ -17,7 +17,7 @@
          if($query->rowCount() >= 1) {
              $_SESSION['user'] = $user;
              $_SESSION['time_start_login'] = time();
-             header("location: ../minotaur-backend/index.php");
+             header("location: index.php");
          } else {
              $messeg = "Username/Password is wrong";
          }

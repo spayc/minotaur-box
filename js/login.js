@@ -14,7 +14,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "../minotaur-backend/login.php",
+            url: "login.php",
             data: {
                 email: email,
                 password: password
@@ -23,7 +23,7 @@ $(document).ready(function() {
             cache: false,
             success: function(data) {
                 //alert(data);
-                window.location.href = "/minotaur/minotaur-box/minotaur-backend/index.php"
+                window.location.href = "index.php"
             },
             error: function(xhr, status, error) {
                 console.error(xhr);
