@@ -42,6 +42,13 @@ INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VAL
 (5, 'Minotaur', MD5('aminotauro'));
 
 
+-- -----------------------------------------------------
+-- USERS AND PRIVS
+-- -----------------------------------------------------
+CREATE USER 'daedalus'@'localhost' IDENTIFIED BY 'password';
+GRANT SELECT ON labyrinth.table_name TO 'daedalus'@'localhost';
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

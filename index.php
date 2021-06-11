@@ -40,7 +40,7 @@
 
 
     <div class="jumbotron text-center text-white bg-secondary rounded-0">
-        <img src="imgs/labyrinth_user.jpg" alt="" class="rounded w-25" />
+        <img src="imgs\labytinth_user.jpg" alt="" class="rounded w-25" />
         <p>Welcome to the beginning of my Labyrinth</p>
         <p>-- Minotaur</p>
     </div>
