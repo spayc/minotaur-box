@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `labyrinth`.`people` (
  `idPeople` INT NOT NULL AUTO_INCREMENT,
  `namePeople` VARCHAR(255) NOT NULL,
  `passwordPeople` VARCHAR(255) NOT NULL,
+ `permissionPeople` VARCHAR(255) NOT NULL,
  PRIMARY KEY (`idPeople`));
 
 CREATE TABLE IF NOT EXISTS `labyrinth`.`creatures` (
@@ -31,9 +32,9 @@ CREATE TABLE IF NOT EXISTS `labyrinth`.`login` (
 
 
 INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople) VALUES
-(1, 'Eurycliedes', 'testpassword1'),
-(2, 'Menekrates', 'testpassword2'),
-(3, 'Philostratos', 'testpassword3');
+(1, 'Eurycliedes', 'testpassword1','admin'),
+(2, 'Menekrates', 'testpassword2','user'),
+(3, 'Daidalos', 'testpassword3','user');
 
 INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VALUES
 (1, 'Cerberos', 'testpassword4'),
