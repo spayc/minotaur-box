@@ -9,7 +9,7 @@
       if(empty($user) || empty($pass)) {
          $messeg = "Username/Password con't be empty";
      } else {
-         $sql = "SELECT namePeople, passwordPeople, permissionPeople VARCHAR(255) NOT NULL,
+         $sql = "SELECT namePeople, passwordPeople, permissionPeople 
          FROM labyrinth.people WHERE namePeople=? AND 
        passwordPeople=? ";
          $query = $conn->prepare($sql);
