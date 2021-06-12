@@ -1,43 +1,39 @@
 <?php
+// required headers
 header("Access-Control-Allow-Origin: *");
+// header("Content-Type: application/json; charset=UTF-8");
 
+if (isset($_GET["id"])) {
 
-if (isset($_POST['nameCreature'])) {
 	require '../../dbConnect.php';
 
-	$name = $_POST["nameCreature"];
+	$id = $_GET['id'];
 
+	// 1.step without prepared statement
+	// $delete_stmt = "delete from playlist where id = $id";
+	$delete_stmt = "delete from playlist where id = :id";
 
-	$remove = "DELETE FROM creatures WHERE nameCreature=:nameCreature";
+	// echo $delete_stmt;
+	// $result = $conn->query($delete_stmt);
+	$result = $conn->prepare($delete_stmt);
 
-	try {
-		$result = $conn->prepare($remove);
+	// bind param
+	$result->bindParam(':id', $id);
+	$result->execute();
 
-
-		$result->bindParam(':nameCreature', $name);
-
-		
-		$result->execute();
-
-	} catch (PDOException $e) {
-		http_response_code(500);
+	if($result) {
 		echo json_encode(
-			array("message" => "Something went wrong:" . $e->getMessage())
+			array("message" => "Deleted id $id")
+		);
+	} else {
+		echo json_encode(
+			array("message" => "Delete id $id failed!")
 		);
 	}
 
-
-	if ($result) {
-		http_response_code(201);
-		
-		echo json_encode(
-			array("message" => "Executed Successfully")
-		);
-	}
-
+	
+	
 } else {
-	http_response_code(403);
-
 	echo json_encode(
 		array("message" => "No action")
 	);
