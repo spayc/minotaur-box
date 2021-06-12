@@ -7,7 +7,7 @@ $(document).ready(function () {
 
         
         if(table_input == "people"){
-            console.log("PEOPLE")
+            // console.log("PEOPLE")
             $.ajax({
                 url : `api/${table_input}/search`,
                 type: 'POST',
@@ -32,7 +32,7 @@ $(document).ready(function () {
               });
         }
         else if(table_input == "creatures"){
-            console.log("CREATURES")
+            // console.log("CREATURES")
             $.ajax({
                 url : `api/${table_input}/search`,
                 type: 'POST',

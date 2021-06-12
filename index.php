@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-//   include('session.php');
-=======
    include('session.php');
->>>>>>> newloginsystem
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -17,7 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
     <script src="js/userlvl.js"></script>
 </head>
 
@@ -25,16 +20,6 @@
 
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <a class="navbar-brand" href="index.php"><i class="fas fa-cog"></i></a>
-=======
-    <script src="js/main.js"></script>
-</head>
-
-<body>
-    <!-- NavBar -->
-
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <a class="navbar-brand" href="index.html"><i class="fas fa-cog"></i></a>
->>>>>>> newloginsystem
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -55,16 +40,11 @@
 
 
     <div class="jumbotron text-center text-white bg-secondary rounded-0">
-<<<<<<< HEAD
         <img src="imgs\labytinth_user.jpg" alt="" class="rounded w-25" />
-=======
-        <img src="/imgs/labytinth_user.jpg" alt="logo" class="rounded w-25" />
->>>>>>> newloginsystem
         <p>Welcome to the beginning of my Labyrinth</p>
         <p>-- Minotaur</p>
     </div>
 
-<<<<<<< HEAD
 
 
     <div class="container">
@@ -83,18 +63,6 @@
                 <button class="btn btn-secondary" id="btn-choose-name">
                     Show
                 </button>
-=======
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="selectlist">Choose character:</label>
-                    <input type="" name="" id="" class="form-control">
-                </div>
-                <button class="btn btn-secondary" id="btn">
-            Show
-          </button>
->>>>>>> newloginsystem
             </div>
         </div>
     </div>
@@ -104,7 +72,6 @@
     <div class="container" id="container-details">
         <div class="row">
             <div class="col">
-<<<<<<< HEAD
                 <table class="center table" id="table-search">
                     <tr>
                         <th>ID</th>
@@ -113,29 +80,15 @@
                     </tr> 
                     <tbody id="data"></tbody>
                 </table>
-=======
-                <div class="card text-center">
-                    <div id="card-body-img" class="card-body">
-                        <img src=" " alt="" id="img-id" class="w-25 rounded">
-                        <p id="name-id"></p>
-                        <p id="occupation-id"></p>
-                        <p id="nickname-id"></p>
-                        <p id="actor-id"></p>
-                    </div>
-                </div>
->>>>>>> newloginsystem
             </div>
         </div>
     </div>
 
-<<<<<<< HEAD
 
     <br>
     <br>
     <br>
 
-=======
->>>>>>> newloginsystem
     <footer class="sticky-footer p-4 bg-secondary text-white text-center mt-5">
 
         <div class="row">

@@ -1,7 +1,3 @@
-<<<<<<< HEAD:dbCreate.sql
-=======
-
->>>>>>> newloginsystem:minotaur-backend/dbCreate.sql
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -22,64 +18,29 @@ CREATE TABLE IF NOT EXISTS `labyrinth`.`creatures` (
  PRIMARY KEY (`idCreature`));
 
 
-<<<<<<< HEAD:dbCreate.sql
 -- -----------------------------------------------------
 -- Table `labyrinth`.`creatures`
 -- -----------------------------------------------------
 
-INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople) VALUES
-(1, 'Eurycliedes', MD5('greeklover')),
-(2, 'Menekrates', MD5('greeksalad')),
-(3, 'Philostratos', MD5('nickthegreek')),
-(4, 'Daedalus', MD5('1989dontforgetyourpass'));
+INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople, permissionPeople) VALUES
+(1, 'Eurycliedes', MD5('greeklover'), 'user'),
+(2, 'Menekrates', MD5('greeksalad'), 'user'),
+(3, 'Philostratos', MD5('nickthegreek'), 'user'),
+(4, 'Daedalus', MD5('1989dontforgetyourpass'), 'user'),
+(5, 'Minotaur', MD5('aminotauro'), 'admin');
 
 INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VALUES
 (1, 'Cerberos', MD5('soviet911210036173')),
 (2, 'Pegasus', MD5('pizzaeater_1')),
 (3, 'Chiron', MD5('hiphophugosoviet18')),
-(4, 'Centaurus', MD5('elcentauro')),
-(5, 'Minotaur', MD5('aminotauro'));
+(4, 'Centaurus', MD5('elcentauro'));
 
 
 -- -----------------------------------------------------
 -- USERS AND PRIVS
 -- -----------------------------------------------------
-CREATE USER 'daedalus'@'localhost' IDENTIFIED BY 'password';
-GRANT SELECT ON labyrinth.table_name TO 'daedalus'@'localhost';
-=======
- CREATE TABLE IF NOT EXISTS `labyrinth`.`lunch` (
- `idFood` INT NOT NULL AUTO_INCREMENT,
- `nameFood` VARCHAR(255) NOT NULL,
- PRIMARY KEY (`idFood`));
-
-CREATE TABLE IF NOT EXISTS `labyrinth`.`login` (
- `idLogin` INT NOT NULL AUTO_INCREMENT,
- `nameLogin` VARCHAR(255) NOT NULL,
- `passwordLogin` VARCHAR(255) NOT NULL,
- PRIMARY KEY (`idLogin`));
-
-
-INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople) VALUES
-(1, 'Eurycliedes', 'testpassword1','admin'),
-(2, 'Menekrates', 'testpassword2','user'),
-(3, 'Daidalos', 'testpassword3','user');
-
-INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VALUES
-(1, 'Cerberos', 'testpassword4'),
-(2, 'Pegasus', 'testpassword5'),
-(3, 'Chiron', 'testpassword6');
-
-INSERT INTO labyrinth.login (idLogin, nameLogin, passwordLogin) VALUES
-(1, 'Minotau', 'test'),
-(2, 'Daddalus', 'testpassword5'),
-(3, 'test', 'test');
-
-
-INSERT INTO labyrinth.lunch (idFood, nameFood) VALUES
-(1, 'Baklava'),
-(2, 'Olives'),
-(3, 'Cheese');
->>>>>>> newloginsystem:minotaur-backend/dbCreate.sql
+-- CREATE USER 'daedalus'@'localhost' IDENTIFIED BY 'password';
+-- GRANT SELECT ON labyrinth.table_name TO 'daedalus'@'localhost';
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
