@@ -1,6 +1,7 @@
 <?php
 // required headers
 header("Access-Control-Allow-Origin: *");
+include('../../session2.php');
 
 if (isset($_POST["interpret"])) {
 
@@ -35,7 +36,7 @@ if (isset($_POST["interpret"])) {
 		// execute the statement on the database
 		$result->execute();
 	} catch (PDOException $e) {
-		http_response_code(500);		// 5xx ---> Error on the server side!!!!
+		//http_response_code(500);		// 5xx ---> Error on the server side!!!!
 
 		// response with json
 		// echo json_encode(
@@ -48,7 +49,7 @@ if (isset($_POST["interpret"])) {
 
 
 	if ($result) {
-		http_response_code(201);		// 200 -> OK, 201 -> Created
+		//http_response_code(201);		// 200 -> OK, 201 -> Created
 
 		// response with json
 		echo json_encode(
@@ -57,7 +58,7 @@ if (isset($_POST["interpret"])) {
 	}
 } else {
 	// set response code - 403  -Forbidden
-	http_response_code(403);
+	//http_response_code(403);
 
 	// tell the user error
 	echo json_encode(

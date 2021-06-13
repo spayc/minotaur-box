@@ -3,6 +3,7 @@
 header("Access-Control-Allow-Origin: root");
 header("Content-Type: application/json; charset=UTF-8");
 require '../../dbConnect.php';
+include('../../session2.php');
 
 // GET
 if (isset($_GET)) {
@@ -15,7 +16,7 @@ if (isset($_GET)) {
     $all_rows[] = $row;
   }
   echo json_encode($all_rows);
-  http_response_code(200);
+  //http_response_code(200);
 } 
 
 $conn = null;

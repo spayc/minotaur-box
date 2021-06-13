@@ -1,5 +1,9 @@
 <?php
    include('session.php');
+   //trying permission checks 
+   require("dbConnect.php");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -14,6 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/userlvl.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
 </head>
 
 <body>
@@ -28,20 +33,54 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li>
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">About</a>
                 </li>
                 </li>
+                <?php
+                if(isset($_SESSION['user'])){
+$user = $_SESSION['user'];
+$select = "SELECT permissionPeople FROM people WHERE namePeople=:namePeople";
+
+	try {
+		$result = $conn->prepare($select);
+
+
+		$result->bindParam(':namePeople', $user);
+
+		
+		$result->execute();
+
+        $all_rows = [];
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        $all_rows[] = $row;
+        $pem =  json_encode($all_rows[0]); 
+        if(strpos($pem, "admin") !== false){
+            echo "<li class='nav-item'>
+            <a class='nav-link' href='echo.php'>Secret Admin Stuff</a>
+        </li>";
+        }
+        }
+ 
+}
+catch (PDOException $e) {
+    //http_response_code(500);
+    echo json_encode(
+        array("message" => "Something went wrong:" . $e->getMessage())
+    );
+}
+}
+?>
             </ul>
         </div>
     </nav>
 
 
     <div class="jumbotron text-center text-white bg-secondary rounded-0">
-        <img src="imgs\labytinth_user.jpg" alt="" class="rounded w-25" />
-        <p>Welcome to the beginning of my Labyrinth</p>
+        <img src="imgs\minotaur.png" alt="" class="rounded w-25" />
+        <p>Welcome to the begin of my Labyrinth</p>
         <p>-- Minotaur</p>
     </div>
 
@@ -61,7 +100,7 @@
                     <input type="" name="" id="name-input-field" class="form-control">
                 </div>
                 <button class="btn btn-secondary" id="btn-choose-name">
-                    Show
+                    Search  
                 </button>
             </div>
         </div>
