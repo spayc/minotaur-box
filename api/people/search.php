@@ -8,6 +8,7 @@ if (isset($_POST['namePeople'])) {
 	$name = $_POST["namePeople"];
 
 	$stmt = $conn->prepare("SELECT idPeople, namePeople, passwordPeople FROM people WHERE namePeople='{$name}'");
+	// $stmt = "SELECT idPeople, namePeople, passwordPeople FROM people WHERE namePeople='{$name}'";
 	
 
 	try{

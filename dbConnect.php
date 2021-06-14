@@ -10,8 +10,7 @@
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		
-	} catch (PDOException $e) {
-		
+	} catch (PDOException $e) {		
 		die();
 	}
 
