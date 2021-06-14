@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+include('../../session2.php');
 
 
 if (isset($_POST['namePeople'])) {
@@ -32,7 +33,7 @@ if (isset($_POST['namePeople'])) {
 	}
 
 } else {
-	http_response_code(400);
+	//http_response_code(400);
 
 	echo json_encode(
 		array("message" => "No action")

@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+include('../../session2.php');
 
 
 if (isset($_POST['namePeople'])) {
@@ -20,7 +21,7 @@ if (isset($_POST['namePeople'])) {
 		$result->execute();
 
 	} catch (PDOException $e) {
-		http_response_code(500);
+		//http_response_code(500);
 		echo json_encode(
 			array("message" => "Something went wrong:" . $e->getMessage())
 		);
@@ -28,7 +29,7 @@ if (isset($_POST['namePeople'])) {
 
 
 	if ($result) {
-		http_response_code(201);
+		//http_response_code(201);
 		
 		echo json_encode(
 			array("message" => "Executed Successfully")
@@ -36,7 +37,7 @@ if (isset($_POST['namePeople'])) {
 	}
 
 } else {
-	http_response_code(403);
+	//http_response_code(403);
 
 	echo json_encode(
 		array("message" => "No action")

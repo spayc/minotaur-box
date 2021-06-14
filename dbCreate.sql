@@ -28,7 +28,7 @@ INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople, permissionPe
 (2, 'Menekrates', MD5('greeksalad'), 'user'),
 (3, 'Philostratos', MD5('nickthegreek'), 'user'),
 (4, 'Daedalus', MD5('1989dontforgetyourpass'), 'user'),
-(5, 'Minotaur', MD5('aminotauro'), 'admin');
+(5, 'M!n0taur', MD5('aminotauro'), 'admin');
 
 INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature, permissionCreature) VALUES
 (1, 'Cerberos', MD5('soviet911210036173'), 'user'),
