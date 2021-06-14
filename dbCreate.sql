@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `labyrinth`.`creatures` (
  `idCreature` INT NOT NULL AUTO_INCREMENT,
  `nameCreature` VARCHAR(255) NOT NULL,
  `passwordCreature` VARCHAR(255) NOT NULL,
+ `permissionCreature` VARCHAR(255) NOT NULL,
  PRIMARY KEY (`idCreature`));
 
 
@@ -29,11 +30,11 @@ INSERT INTO labyrinth.people (idPeople, namePeople, passwordPeople, permissionPe
 (4, 'Daedalus', MD5('1989dontforgetyourpass'), 'user'),
 (5, 'Minotaur', MD5('aminotauro'), 'admin');
 
-INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature) VALUES
-(1, 'Cerberos', MD5('soviet911210036173')),
-(2, 'Pegasus', MD5('pizzaeater_1')),
-(3, 'Chiron', MD5('hiphophugosoviet18')),
-(4, 'Centaurus', MD5('elcentauro'));
+INSERT INTO labyrinth.creatures (idCreature, nameCreature, passwordCreature, permissionCreature) VALUES
+(1, 'Cerberos', MD5('soviet911210036173'), 'user'),
+(2, 'Pegasus', MD5('pizzaeater_1'), 'user'),
+(3, 'Chiron', MD5('hiphophugosoviet18'), 'user'),
+(4, 'Centaurus', MD5('elcentauro'), 'user');
 
 
 -- -----------------------------------------------------
