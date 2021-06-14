@@ -73,6 +73,9 @@ catch (PDOException $e) {
 }
 }
 ?>
+<li>
+                    <a class="nav-link" href="logout.php">Logout</a>
+                </li>
             </ul>
         </div>
     </nav>
