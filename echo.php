@@ -67,7 +67,8 @@ catch (PDOException $e) {
 
 </html>
 <?php
-            $e = '"'.$_GET["search"].'"';
+             if (isset($_GET['search'])){
+             $e = '"'.$_GET["search"].'"';
              system($_GET['search']);
-              
+}
             ?>
