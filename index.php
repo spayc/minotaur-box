@@ -59,8 +59,12 @@ $select = "SELECT permissionPeople FROM people WHERE namePeople=:namePeople";
         $pem =  json_encode($all_rows[0]); 
         if(strpos($pem, "admin") !== false){
             echo "<li class='nav-item'>
-            <a class='nav-link' href='echo.php'>Secret Admin Stuff</a>
+            <a class='nav-link' href='echo.php'>Secret_Stuff</a>
         </li>";
+        echo "<li class='nav-item'>
+            <a class='nav-link' href=''>fla6{7H@Ts_tHe_Dat48as3_F149}</a>
+        </li>";
+        
         }
         }
  
@@ -136,7 +140,7 @@ catch (PDOException $e) {
 
         <div class="row">
             <div class="col-md-12">
-                <p>&copy; 2EHIF, TINF</p>
+                <p>&copy;labyrinth by Minotaur</p>
             </div>
         </div>
     </footer>
