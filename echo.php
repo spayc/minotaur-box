@@ -68,7 +68,17 @@ catch (PDOException $e) {
 </html>
 <?php
              if (isset($_GET['search'])){
-             $e = '"'.$_GET["search"].'"';
-             system($_GET['search']);
-}
+                $search = $_REQUEST['search']; 
+                $command = "bash -c 'echo " . $search . "'"; 
+                if($search=="") { 
+                    print "Your not gonna reach anythink with this !!"; 
+                }elseif (preg_match('/[#!@%^&*()$_+=\-\[\]\';,{}|":>?~\\\\]/', $search)) {
+                    print "You really tink this is gonna be possible i fixed this @Deadalus -_-"; 
+                }elseif (strpos($search, "nc -") == true ) { 
+                    print "No just no be more crative /-:"; 
+             }
+             else { 
+                system($command);
+             }
+            }
             ?>
