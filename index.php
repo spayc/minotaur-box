@@ -99,7 +99,8 @@ catch (PDOException $e) {
                         <option>Creatures</option>
                     </select>
                     <br>
-                    <label for="selectlist">Choose name:</label>
+                    <label for="selectlist">namePeople/nameCreature:</label>
+                    <!-- Minotaur!!! Told you not to keep permissions in the same shelf as all the others  -->
                     <input type="" name="" id="name-input-field" class="form-control">
                 </div>
                 <button class="btn btn-secondary" id="btn-choose-name">

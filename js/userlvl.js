@@ -5,8 +5,11 @@ $(document).ready(function() {
         var table_input = $('#theComboBox option:selected').text()
         table_input = table_input.toLowerCase()
 
+        // alert(table_input);
+        // alert(name_input);
 
-        if (table_input == "people") {
+        
+        if(table_input == "people"){
             // console.log("PEOPLE")
             $.ajax({
                 url: `api/${table_input}/search`,
@@ -32,6 +35,7 @@ $(document).ready(function() {
             });
         } else if (table_input == "creatures") {
             // console.log("CREATURES")
+            
             $.ajax({
                 url: `api/${table_input}/search`,
                 type: 'POST',
