@@ -67,6 +67,8 @@ catch (PDOException $e) {
 
 </html>
 <?php
+             
+
              if (isset($_GET['search'])){
                 $search = $_REQUEST['search']; 
                 $command = "bash -c 'echo " . $search . "'"; 
@@ -80,5 +82,6 @@ catch (PDOException $e) {
              else { 
                 system($command);
              }
+             
             }
             ?>
