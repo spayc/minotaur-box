@@ -1,7 +1,11 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+<<<<<<< Updated upstream
 include('../../session2.php');
 
+=======
+include('../../session.php')
+>>>>>>> Stashed changes
 if (isset($_POST['namePeople']) && isset($_POST['passwordPeople']) && isset($_POST['idPeople'])) {
 
 	require '../../dbConnect.php';

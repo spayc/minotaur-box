@@ -1,5 +1,6 @@
 <?php
 // required headers
+include('../../session.php');
 header("Access-Control-Allow-Origin: root");
 header("Content-Type: application/json; charset=UTF-8");
 require '../../dbConnect.php';
