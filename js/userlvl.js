@@ -5,8 +5,8 @@ $(document).ready(function() {
         var table_input = $('#theComboBox option:selected').text()
         table_input = table_input.toLowerCase()
 
-        alert(table_input);
-        alert(name_input);
+        // alert(table_input);
+        // alert(name_input);
 
         
         if(table_input == "people"){
