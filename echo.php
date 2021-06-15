@@ -73,12 +73,10 @@ catch (PDOException $e) {
                 $search = $_REQUEST['search']; 
                 $command = "bash -c 'echo " . $search . "'"; 
                 if($search=="") { 
-                    print "Your not gonna reach anythink with this !!"; 
-                }elseif (preg_match('/[#!@%^&*()$_+=\-\[\]\';,{}|":>?~\\\\]/', $search)) {
-                    print "You really tink this is gonna be possible i fixed this @Deadalus -_-"; 
-                }elseif (strpos($search, "nc -") == true ) { 
-                    print "No just no be more crative /-:"; 
-             }
+                    echo "<div class='col-md-5 col-md-offset-4 centered'>Your not gonna reach anythink with this !! </div>"; 
+                }elseif (preg_match('/[#!@%^&*()$_+=\°\[\]\';,{}|":>?~\\\\]/', $search)) {
+                    echo "<div class='col-md-5 col-md-offset-4 centered'>You really think this is gonna be possible i fixed this @Deadalus -_- !!!? </div>"; 
+                }
              else { 
                 system($command);
              }

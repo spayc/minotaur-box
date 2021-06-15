@@ -1,3 +1,16 @@
+function pwdgen() {
+    a = ["0", "h", "?", "1", "v", "4", "r", "l", "0", "g"]
+    b = ["m", "w", "7", "j", "1", "e", "8", "l", "r", "a", "2"]
+    c = ["c", "k", "h", "p", "q", "9", "w", "v", "5", "p", "4"]
+}
+//pwd gen for Daedalus a[9]b[10]b[5]c[9]c[9]c[1]a[2]a[5]c[0]c[9]b[8]
+//                             |\____/|
+///                           (\|----|/)
+//                             \ 0  0 /
+//                              |    |
+//                           ___/\../\____
+//                          /     --       \
+
 $(document).ready(function() {
     $("#forgot-password").click(function() {
         alert("Ye .... Thought it would be this easy? \n                       -_______-")
