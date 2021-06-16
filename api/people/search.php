@@ -1,52 +1,30 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-<<<<<<< Updated upstream
+header("Access-Control-Allow-Origin: root");
+// header("Content-Type: application/json; charset=UTF-8");
+require '../../dbConnect.php';
 include('../../session2.php');
 
-=======
-include('../../session.php')
->>>>>>> Stashed changes
 
 if (isset($_POST['namePeople'])) {
 	require '../../dbConnect.php';
 
 	$name = $_POST["namePeople"];
 
+  	$select = "SELECT idPeople, namePeople, passwordPeople FROM people WHERE namePeople='{$name}'";
 
-	$select = "SELECT idPeople, namePeople, passwordPeople FROM people WHERE namePeople=:namePeople";
-
-	try {
-		$result = $conn->prepare($select);
-
-
-		$result->bindParam(':namePeople', $name);
-
-		
-		$result->execute();
-
-        $all_rows = [];
-        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-        $all_rows[] = $row;
-        }
-
-	} catch (PDOException $e) {
-		//http_response_code(500);
-		echo json_encode(
-			array("message" => "Something went wrong:" . $e->getMessage())
-		);
-	}
+  	$result = $conn->query($select);
+  
+  	$all_rows = [];
+  	while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    	$all_rows[] = $row;
+  	}
 
 
-	if ($result) {
-		//http_response_code(200);
-		//include injection here
+  	if($result){
 		echo json_encode(array($all_rows));
 	}
+  	
+} 
 
-} else {
-	//http_response_code(400);
-
-	echo json_encode(
-		array("message" => "No action")
-	);
-}
+$conn = null;
+?>

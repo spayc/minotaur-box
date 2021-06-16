@@ -1,17 +1,30 @@
 <?php
-// required headers
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-<<<<<<< Updated upstream
+header("Access-Control-Allow-Origin: root");
+// header("Content-Type: application/json; charset=UTF-8");
+require '../../dbConnect.php';
 include('../../session2.php');
 
-=======
-include('../../session.php');
->>>>>>> Stashed changes
-if (isset($_GET["s"])) {
-	// TODO
-} else {
-		// echo json_encode(
-    //   array("message" => "no data")
-    // );
-}
+
+if (isset($_POST['nameCreature'])) {
+	require '../../dbConnect.php';
+
+	$name = $_POST["nameCreature"];
+
+  	$select = "SELECT idCreature, nameCreature, passwordCreature FROM creatures WHERE nameCreature='{$name}'";
+
+  	$result = $conn->query($select);
+  
+  	$all_rows = [];
+  	while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    	$all_rows[] = $row;
+  	}
+
+
+  	if($result){
+		echo json_encode(array($all_rows));
+	}
+  	
+} 
+
+$conn = null;
+?>
