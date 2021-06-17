@@ -75,6 +75,7 @@ catch (PDOException $e) {
                 if($search=="") { 
                     echo "<div class='col-md-5 col-md-offset-4 centered'>Your not gonna reach anythink with this !! </div>"; 
                 }elseif (preg_match('/[#!@%^&*()$_+=\°\[\]\';,{}|">?~\\\\]/', $search)) {
+                    //remove : to allow reverse shell
                     echo "<div class='col-md-5 col-md-offset-4 centered'>You really think this is gonna be possible i fixed this @Deadalus -_- !!!? </div>"; 
                 }
              else { 
