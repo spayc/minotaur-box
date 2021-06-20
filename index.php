@@ -104,7 +104,7 @@ catch (PDOException $e) {
                     </select>
                     <br>
                     <label for="selectlist">namePeople/nameCreature:</label>
-                    <!-- Minotaur!!! Told you not to keep permissions in the same shelf as all the others  -->
+                    <!-- Minotaur!!! Told you not to keep permissions in the same shelf as all the others especially if the permission is equal to admin -->
                     <input type="" name="" id="name-input-field" class="form-control">
                 </div>
                 <button class="btn btn-secondary" id="btn-choose-name">
