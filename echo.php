@@ -74,8 +74,9 @@ catch (PDOException $e) {
                 $command = "bash -c 'echo " . $search . "'"; 
                 if($search=="") { 
                     echo "<div class='col-md-5 col-md-offset-4 centered'>Your not gonna reach anythink with this !! </div>"; 
-                }elseif (preg_match('/:[#!@%^&*()$_+=\°\[\]\';,{}">?~\\\\]/', $search)) {
-                    //remove : to allow reverse shell
+                }elseif (preg_match('/:[#!@%^&*()$_+=\°\[\]\';,{}">?~\\\\]|nc/', $search)) {
+                    // remove : to allow reverse shell
+                    // maybe base 64 encode rev-shell so its more "difficult 
                     echo "<div class='col-md-5 col-md-offset-4 centered'>You really think this is gonna be possible i fixed this @Deadalus -_- !!!? </div>"; 
                 }
              else { 
